@@ -5,6 +5,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api/api.service';
 import { Auth0Service } from './services/auth0/auth0.service';
 import { StorageService } from './services/storage/storage.service';
+import { MaterializeModule } from 'angular2-materialize';
 
 
 import { AppComponent } from './app.component';
@@ -20,6 +21,7 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
   imports: [
     BrowserModule,
     HttpClientModule,
+    MaterializeModule,
     RouterModule.forRoot([
       { path: '', redirectTo: 'ingresar', pathMatch: 'full' },
       { path: 'ingresar', component: LoginComponent },
