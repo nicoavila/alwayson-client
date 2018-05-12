@@ -24,4 +24,11 @@ export class ApiService {
     return this.http.get(environment.apiEndpoint + 'proyectos', { headers: headers });
   }
 
+  //Obiene la información de un usuario
+  public informacionAuth0(token, data) {
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + token
+    });
+    return this.http.post(environment.apiEndpoint + 'usuarios/auth0', data, { headers: headers });
+  }
 }

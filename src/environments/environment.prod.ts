@@ -9,5 +9,5 @@ export const environment = {
     scope: 'openid profile email user_metadata'
   },
   returnUrl: 'http://localhost:4200',
-  apiEndpoint: 'http://localhost:3000/'
+  apiEndpoint: 'http://api.nicoavila.cl/'
 };

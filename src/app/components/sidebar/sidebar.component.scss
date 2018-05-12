@@ -1,0 +1,38 @@
+.sidebar {
+  padding: 20px;
+
+  .user_container {
+    img {
+      display: block;
+      margin: 0px auto;
+      width: 100px;
+      height: 100px;
+      border-radius: 100px;
+    }
+    h3 {
+      margin: 0px;
+      padding: 0px;
+      margin-top: 20px;
+      text-align: center;
+      font-size: 22px;
+      color: #009688;
+    }
+  }
+
+  .menu {
+    li {
+      width: 100%;
+      padding: 10px;
+      border-bottom: 1px solid #CECECE;
+      a {
+        width: 100%;
+        color: #009688;
+        font-size: 16px;
+        i {
+          position: relative;
+          top: 5px;
+        }
+      }
+    }
+  }
+}
