@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { StorageService } from '../../services/storage/storage.service';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,7 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
 
-  constructor() { }
+  public user;
+
+  constructor(
+    public storage: StorageService
+  ) {
+    this.user = this.storage.getCurrentUser();
+  }
 
   ngOnInit() {
   }

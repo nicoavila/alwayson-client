@@ -1,1 +1,26 @@
-<h1 class="title">Proyectos</h1>
+<div class="row">
+  <div class="col s12">
+    <h1 class="title">Proyectos</h1>
+
+    <a [routerLink]="['/dashboard/proyectos/nuevo']" class="waves-effect waves-light green btn btn-small">Crear nuevo proyecto</a>
+
+    <table class="table highlight">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr *ngFor="let project of projects">
+          <td>{{project.name}}</td>
+          <td>
+            <a [routerLink]="['/dashboard/proyectos/editar/', project.id]" class="waves-effect waves-light green btn btn-small">Editar</a>
+            <a [routerLink]="['/dashboard/proyectos/eliminar/', project.id]" class="waves-effect waves-light red btn btn-small">Borrar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

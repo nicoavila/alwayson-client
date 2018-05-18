@@ -16,6 +16,10 @@ export class ApiService {
     private http:HttpClient
   ) { }
 
+  /* -------------------------------------------
+  * PROYECTOS
+  ------------------------------------------- */
+
   //Obtiene la lista de proyectos
   public getProyectos(jwtToken) {
     let headers = new HttpHeaders({
@@ -23,6 +27,18 @@ export class ApiService {
     });
     return this.http.get(environment.apiEndpoint + 'proyectos', { headers: headers });
   }
+
+  //Crea un nuevo proyecto
+  public createProjecto(jwtToken, data) {
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + jwtToken
+    });
+    return this.http.post(environment.apiEndpoint + 'proyectos', data, { headers: headers });
+  }
+
+  /* -------------------------------------------
+  * AUTH0
+  ------------------------------------------- */
 
   //Obiene la información de un usuario
   public informacionAuth0(token, data) {

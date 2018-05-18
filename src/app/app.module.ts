@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ApiService } from './services/api/api.service';
 import { Auth0Service } from './services/auth0/auth0.service';
@@ -20,6 +21,8 @@ import { LoadingComponent } from './components/loading/loading.component';
 import { ProjectsComponent } from './pages/projects/projects.component';
 import { SummaryComponent } from './pages/summary/summary.component';
 import { UsersComponent } from './pages/users/users.component';
+import { EditProjectComponent } from './pages/projects/edit-project/edit-project.component';
+import { NewProjectComponent } from './pages/projects/new-project/new-project.component';
 
 @NgModule({
   declarations: [
@@ -32,12 +35,16 @@ import { UsersComponent } from './pages/users/users.component';
     LoadingComponent,
     ProjectsComponent,
     SummaryComponent,
-    UsersComponent
+    UsersComponent,
+    EditProjectComponent,
+    NewProjectComponent
   ],
   imports: [
     BrowserModule,
     HttpClientModule,
     MaterializeModule,
+    FormsModule,
+    ReactiveFormsModule,
     LoadingModule.forRoot({
       animationType: ANIMATION_TYPES.rotatingPlane,
       backdropBackgroundColour: 'rgba(0,0,0,0.5)',
@@ -54,6 +61,8 @@ import { UsersComponent } from './pages/users/users.component';
           { path: '', redirectTo: 'resumen', pathMatch: 'full' },
           { path: 'resumen', component: SummaryComponent },
           { path: 'proyectos', component: ProjectsComponent },
+          { path: 'proyectos/editar/:id', component: EditProjectComponent },
+          { path: 'proyectos/nuevo', component: NewProjectComponent },
           { path: 'usuarios', component: UsersComponent },
         ]
       },

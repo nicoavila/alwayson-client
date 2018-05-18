@@ -9,6 +9,21 @@ h1.title {
   font-size: 22px;
   margin: 0px;
   padding: 0px;
+  margin-bottom: 20px;
   border-bottom: 1px solid #009688;
   color: #009688;
+}
+
+table {
+  border: 1px solid #CECECE;
+  margin-top: 20px;
+  thead {
+    tr {
+      background: #009688;
+      color: #FFFFFF;
+      th, td {
+        padding-left: 15px !important;
+      }
+    }
+  }
 }
