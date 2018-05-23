@@ -26,4 +26,10 @@ export class ProjectsComponent implements OnInit {
       this.projects = proyectos.data;
     });
   }
+
+  public eliminarProyecto(proyectoId) {
+    this.api.deleteProyecto(this.token, proyectoId).subscribe(() => {
+      window.location.reload();
+    })
+  }
 }

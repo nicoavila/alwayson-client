@@ -28,12 +28,36 @@ export class ApiService {
     return this.http.get(environment.apiEndpoint + 'proyectos', { headers: headers });
   }
 
+  //Obtiene un proyecto
+  public getProyecto(jwtToken, id) {
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + jwtToken
+    });
+    return this.http.get(environment.apiEndpoint + 'proyectos/' + id, { headers: headers });
+  }
+
   //Crea un nuevo proyecto
-  public createProjecto(jwtToken, data) {
+  public createProyecto(jwtToken, data) {
     let headers = new HttpHeaders({
       'Authorization': 'Bearer ' + jwtToken
     });
     return this.http.post(environment.apiEndpoint + 'proyectos', data, { headers: headers });
+  }
+
+  //Edita un proyecto existente
+  public editProyecto(jwtToken, id, data) {
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + jwtToken
+    });
+    return this.http.put(environment.apiEndpoint + 'proyectos/' + id, data, { headers: headers });
+  }
+
+  //Elimina un proyecto
+  public deleteProyecto(jwtToken, id) {
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + jwtToken
+    });
+    return this.http.delete(environment.apiEndpoint + 'proyectos/' + id, { headers: headers });
   }
 
   /* -------------------------------------------

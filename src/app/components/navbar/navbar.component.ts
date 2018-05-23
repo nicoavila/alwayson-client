@@ -12,4 +12,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit() {
   }
 
+  public salir() {
+    console.log('Cerrar sesión');
+  }
 }

@@ -25,13 +25,24 @@ export class LoginComponent implements OnInit {
       }
 
       if (auth0Data) {
+        //console.log(auth0Data.idToken);
         this.globalStatus.isLoading = true;
-        this.api.informacionAuth0(auth0Data.idToken, { auth0_user_id: auth0Data.idTokenPayload.sub }).subscribe((informacion:any) => {
-          const name = informacion.data.user_metadata.name;
-          const lastname = informacion.data.user_metadata.lastname;
+        let datos = {
+          auth0_user_id: auth0Data.idTokenPayload.sub
+        };
+        this.api.informacionAuth0(auth0Data.idToken, datos).subscribe((resultado:any) => {
+          const name = resultado.data.user_metadata.name;
+          const lastname = resultado.data.user_metadata.lastname;
 
           //Guarda la información de autenticación del usuario
-          this.storage.saveUser(auth0Data.idToken, name, lastname, auth0Data.idTokenPayload.picture, auth0Data.idTokenPayload.sub, auth0Data.idTokenPayload.email);
+          this.storage.saveUser(
+            auth0Data.idToken,
+            name,
+            lastname,
+            auth0Data.idTokenPayload.picture,
+            auth0Data.idTokenPayload.sub,
+            auth0Data.idTokenPayload.email
+          );
           this.globalStatus.isLoading = false;
           this.router.navigateByUrl('/dashboard');
         });

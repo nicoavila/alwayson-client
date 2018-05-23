@@ -17,7 +17,7 @@
           <td>{{project.name}}</td>
           <td>
             <a [routerLink]="['/dashboard/proyectos/editar/', project.id]" class="waves-effect waves-light green btn btn-small">Editar</a>
-            <a [routerLink]="['/dashboard/proyectos/eliminar/', project.id]" class="waves-effect waves-light red btn btn-small">Borrar</a>
+            <button (click)="eliminarProyecto(project.id)" class="waves-effect waves-light red btn btn-small">Borrar</button>
           </td>
         </tr>
       </tbody>
