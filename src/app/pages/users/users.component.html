@@ -1,1 +1,17 @@
 <h1 class="title">Usuarios</h1>
+
+<table class="table highlight">
+  <thead>
+    <tr>
+      <th>Nombre</th>
+      <th>Auth0 ID</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let user of users">
+      <td>{{user.given_name}} {{user.family_name}}</td>
+      <td>{{user.auth0_id}}</td>
+    </tr>
+  </tbody>
+</table>

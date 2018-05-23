@@ -7,6 +7,7 @@ import { ApiService } from './services/api/api.service';
 import { Auth0Service } from './services/auth0/auth0.service';
 import { StorageService } from './services/storage/storage.service';
 import { GlobalStatusService } from './services/global-status/global-status.service';
+import { AuthGuardService } from './services/auth-guard/auth-guard.service';
 import { MaterializeModule } from 'angular2-materialize';
 import { LoadingModule, ANIMATION_TYPES } from 'ngx-loading';
 
@@ -58,12 +59,12 @@ import { NewProjectComponent } from './pages/projects/new-project/new-project.co
       { path: 'ingresar', component: LoginComponent },
       { path: 'dashboard', component: LayoutComponent,
         children: [
-          { path: '', redirectTo: 'resumen', pathMatch: 'full' },
-          { path: 'resumen', component: SummaryComponent },
-          { path: 'proyectos', component: ProjectsComponent },
-          { path: 'proyectos/editar/:id', component: EditProjectComponent },
-          { path: 'proyectos/nuevo', component: NewProjectComponent },
-          { path: 'usuarios', component: UsersComponent },
+          { path: '', redirectTo: 'resumen', pathMatch: 'full', canActivate: [AuthGuardService] },
+          { path: 'resumen', component: SummaryComponent, canActivate: [AuthGuardService]  },
+          { path: 'proyectos', component: ProjectsComponent, canActivate: [AuthGuardService]  },
+          { path: 'proyectos/editar/:id', component: EditProjectComponent, canActivate: [AuthGuardService]  },
+          { path: 'proyectos/nuevo', component: NewProjectComponent, canActivate: [AuthGuardService]  },
+          { path: 'usuarios', component: UsersComponent, canActivate: [AuthGuardService]  },
         ]
       },
       { path: '404', component: NotFoundComponent },
@@ -74,7 +75,8 @@ import { NewProjectComponent } from './pages/projects/new-project/new-project.co
     ApiService,
     Auth0Service,
     StorageService,
-    GlobalStatusService
+    GlobalStatusService,
+    AuthGuardService
   ],
   bootstrap: [AppComponent]
 })

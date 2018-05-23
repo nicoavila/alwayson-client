@@ -44,6 +44,7 @@ export class LoginComponent implements OnInit {
             auth0Data.idTokenPayload.email
           );
           this.globalStatus.isLoading = false;
+          this.globalStatus.isLoggedIn = true;
           this.router.navigateByUrl('/dashboard');
         });
       }

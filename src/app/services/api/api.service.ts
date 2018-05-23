@@ -61,6 +61,18 @@ export class ApiService {
   }
 
   /* -------------------------------------------
+  * PROYECTOS
+  ------------------------------------------- */
+
+  //Obtiene la lista de usuarios
+  public getUsuarios(jwtToken) {
+    let headers = new HttpHeaders({
+      'Authorization': 'Bearer ' + jwtToken
+    });
+    return this.http.get(environment.apiEndpoint + 'usuarios', { headers: headers });
+  }
+
+  /* -------------------------------------------
   * AUTH0
   ------------------------------------------- */
 
