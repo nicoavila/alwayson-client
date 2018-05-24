@@ -24,6 +24,7 @@ import { SummaryComponent } from './pages/summary/summary.component';
 import { UsersComponent } from './pages/users/users.component';
 import { EditProjectComponent } from './pages/projects/edit-project/edit-project.component';
 import { NewProjectComponent } from './pages/projects/new-project/new-project.component';
+import { CounterComponent } from './components/counter/counter.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { NewProjectComponent } from './pages/projects/new-project/new-project.co
     SummaryComponent,
     UsersComponent,
     EditProjectComponent,
-    NewProjectComponent
+    NewProjectComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,

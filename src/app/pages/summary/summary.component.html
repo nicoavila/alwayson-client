@@ -1,1 +1,3 @@
 <h1 class="title">Resumen</h1>
+
+<app-counter *ngIf="numeroProyectos > 0" [numero]="numeroProyectos" (actualizaNumero)="actualizar()"></app-counter>
